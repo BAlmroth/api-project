@@ -1,0 +1,109 @@
+body {
+    box-sizing: border-box;
+    background-color: #e3e3e3;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+
+}
+
+.selectContainer {
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+}
+
+.right {
+        margin-top: 2rem;
+}
+.right h1, h3{
+    text-align: center;
+}
+.select {
+    background-color: #be7554;
+    padding: 25px 30px;
+    border-radius: 32px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 45vw;
+    min-width: 330px;
+    max-width: 400px;
+}
+
+.select label {
+    display: block;
+    margin-bottom: 32px;
+    font-weight: 600;
+    font-size: 24px;
+    color: #f0f0f0;
+}
+
+.select select {
+    background-color: #f0f0f0;
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 24px;
+}
+
+.select button {
+    background-color: #f0f0f0;
+    color: #be7554;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    
+}
+
+/* ------- */
+
+.resultContainer {
+    margin: 2rem;
+}
+
+#result {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color:#d3a590;
+    border-radius: 2rem;
+    gap: 2rem;
+}
+
+.mealTitle {
+    width: 100%;
+    text-align: center;
+}
+.mealImg {
+    width: 30vw;
+    min-width: 370px;
+    border-radius: 2rem;
+}
+
+.ingredients {
+    background-color: #e1bdac;
+    padding: 1rem 2rem 1rem 3rem;
+    border-radius: 2rem;
+    min-width: 218px;
+    max-width: 240px;
+}
+.ingredients li {
+    margin-bottom: 5px;
+}
+
+.instructions {
+    width: 80%;
+    padding: 1.5rem;
+    margin-bottom: 3.5rem;
+    background-color: #e1bdac;
+    border-radius: 2rem;
+}
+@media screen and (min-width: 800px){
+    body {
+            flex-direction: row;
+    }
+}
