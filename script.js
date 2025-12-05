@@ -37,9 +37,62 @@ button.addEventListener("click", () => {
     })
     .then((allMeals) => { // allMeals['meals'] = alla måltider inom kategorin???
         const meals = allMeals.meals;
-        const randomMeal = //???????
-        console.log(meals);
+        const randomMeal = meals[Math.floor(Math.random() * meals.length)];
+        // console.log(meals);
 
-        const urlDetails = `https://www.themealdb.com/api/json/v1/1/search.php?s=${randomMeal}`;
 
-        
+        const urlDetails = `https://www.themealdb.com/api/json/v1/1/search.php?s=${randomMeal.strMeal}`;
+
+        // console.log(urlDetails) //array med all info
+
+    fetch(urlDetails) //få ut infon på något sätt
+        .then((response) => {
+            return response.json();
+        }) 
+        .then((mealDetails) => {
+
+        const meal = mealDetails.meals[0];
+
+        // Rensa result-diven innan nytt recept skrivs ut
+        result.innerHTML = "";
+
+        //titel
+        const title = document.createElement("h2");
+        title.textContent = meal.strMeal;
+        title.classList.add('mealTitle');
+
+        //bild
+        const image = document.createElement("img");
+        image.src = meal.strMealThumb;
+        image.alt = meal.strMeal;
+        image.classList.add('mealImg');
+
+        // Ingredienslista
+        const ingrediensLista = document.createElement("ul");
+        ingrediensLista.classList.add('ingredients');
+
+        for (let i = 1; i <= 20; i++) {
+            const ingredient = meal[`strIngredient${i}`];
+            const measure = meal[`strMeasure${i}`];
+
+            if (ingredient && ingredient.trim() !== "") {
+                const li = document.createElement("li");
+                li.textContent = `${ingredient} - ${measure}`;
+                ingrediensLista.appendChild(li);
+            }
+        }
+
+
+        const instructions = document.createElement("p");
+        instructions.innerHTML = meal.strInstructions.replace(/\r?\n/g, "<br> <br>");
+        instructions.classList.add('instructions');
+
+        // Stoppa in allt i result-diven
+        result.appendChild(title);
+        result.appendChild(image);
+        result.appendChild(ingrediensLista);
+        result.appendChild(instructions);
+        });
+        })});
+
+            
