@@ -55,11 +55,17 @@ button.addEventListener("click", () => {
 
         // Rensa result-diven innan nytt recept skrivs ut
         result.innerHTML = "";
+                console.log(meal)
 
         //titel
         const title = document.createElement("h2");
         title.textContent = meal.strMeal;
         title.classList.add('mealTitle');
+
+        //Area
+        const area = document.createElement("h3");
+        area.textContent = meal.strArea;
+        area.classList.add('mealArea');
 
         //bild
         const image = document.createElement("img");
@@ -68,8 +74,8 @@ button.addEventListener("click", () => {
         image.classList.add('mealImg');
 
         // Ingredienslista
-        const ingrediensLista = document.createElement("ul");
-        ingrediensLista.classList.add('ingredients');
+        const ingredientsList = document.createElement("ul");
+        ingredientsList.classList.add('ingredients');
 
         for (let i = 1; i <= 20; i++) {
             const ingredient = meal[`strIngredient${i}`];
@@ -78,7 +84,7 @@ button.addEventListener("click", () => {
             if (ingredient && ingredient.trim() !== "") {
                 const li = document.createElement("li");
                 li.textContent = `${ingredient} - ${measure}`;
-                ingrediensLista.appendChild(li);
+                ingredientsList.appendChild(li);
             }
         }
 
@@ -89,8 +95,9 @@ button.addEventListener("click", () => {
 
         // Stoppa in allt i result-diven
         result.appendChild(title);
+        result.appendChild(area);
         result.appendChild(image);
-        result.appendChild(ingrediensLista);
+        result.appendChild(ingredientsList);
         result.appendChild(instructions);
         });
         })});

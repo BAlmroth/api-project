@@ -14,11 +14,12 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0;
-
+    justify-content: center;
 }
 
 .right {
         margin-top: 2rem;
+
 }
 .right h1, h3{
     text-align: center;
@@ -37,7 +38,7 @@ body {
     border-radius: 32px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     text-align: center;
-    width: 45vw;
+
     min-width: 290px;
     max-width: 400px;
     height: 170px;
@@ -76,6 +77,8 @@ body {
 
 .resultContainer {
     margin: 1rem;
+    display: flex;
+    justify-content: center;
 }
 
 
@@ -87,17 +90,23 @@ body {
     flex-wrap: wrap;
     background-color: var(--primaryBackground);
     min-width: 330px;
-    gap: 2rem;
+    width: 90%;
+    /* gap: 2rem; */
 }
 
-.mealTitle {
+.mealTitle, .mealArea {
     width: 100%;
     text-align: center;
 }
+
+.mealTitle, .mealImg, .mealArea, .ingredients, .instructions {
+    margin: 1rem;
+}
+
 .mealImg {
     width: 30vw;
     min-width: 250px;
-    max-width: 480px;
+    max-width: 490px;
 }
 
 .ingredients, .instructions {
@@ -123,10 +132,15 @@ body {
 @media screen and (min-width: 800px){
     body {
             flex-direction: row;
+            margin: 2rem;
     }
     .resultContainer {
     margin: 2rem;
-}
+    }
+
+    #result {
+        min-width: 0;
+    }
 }
 
 /* fixa : så att result har bra padding i mobile, min-width på result för desktop
