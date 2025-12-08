@@ -89,7 +89,7 @@ body {
     align-items: center;
     flex-wrap: wrap;
     background-color: var(--primaryBackground);
-    min-width: 330px;
+    min-width: 310px;
     width: 90%;
     /* gap: 2rem; */
 }
@@ -105,7 +105,7 @@ body {
 
 .mealImg {
     width: 30vw;
-    min-width: 250px;
+    min-width: 270px;
     max-width: 490px;
 }
 
@@ -116,7 +116,7 @@ body {
 
 .ingredients {
     padding: 1rem 2rem 1rem 3rem;
-    min-width: 218px;
+    min-width: 200px;
     max-width: 240px;
 }
 .ingredients li {
@@ -139,10 +139,16 @@ body {
     }
 
     #result {
-        min-width: 0;
+        min-width: 400px;
+    }
+
+    .mealImg {
+    width: 30vw;
+    min-width: 320px;
+    max-width: 490px;
     }
 }
 
-/* fixa : så att result har bra padding i mobile, min-width på result för desktop
-
-ge en mindre min width för img i mobile, se till att result och select har samma width. mer margin på result i mobile, tunn kan atm */
+/* fixa : 
+byta margin på result delarna till padding? 
+lägg in ul som ett append child vid button event.
