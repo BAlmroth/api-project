@@ -5,7 +5,8 @@ const urlIngredient = 'https://www.themealdb.com/api/json/v1/1/filter.php?i=chic
 //select sektion anropa html element 
 const cat = document.getElementById('cat'); //för att lägga in options i select tagen
 const button = document.getElementById('generate'); //för att klicka på knapp -> be js generera
-const result = document.getElementById('result'); //lägg in info :) 
+// const result = document.getElementById('result'); //lägg in info :) 
+const resultContainer = document.querySelector('.resultContainer'); //lägg in info :) 
 
 // element som behöver genereras via js = h2(recept namn), img(bild), list(ingredienser), p(instruktioner)
 
@@ -54,8 +55,13 @@ button.addEventListener("click", () => {
         const meal = mealDetails.meals[0];
 
         // Rensa result-diven innan nytt recept skrivs ut
-        result.innerHTML = "";
+        resultContainer.innerHTML = "";
                 console.log(meal)
+
+        //div
+        const result = document.createElement("div");
+        result.id = "result";
+        resultContainer.appendChild(result)
 
         //titel
         const title = document.createElement("h2");
