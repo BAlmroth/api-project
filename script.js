@@ -105,6 +105,8 @@ button.addEventListener("click", () => {
         result.appendChild(image);
         result.appendChild(ingredientsList);
         result.appendChild(instructions);
+
+        button.textContent = "again?";
         });
         })});
 
