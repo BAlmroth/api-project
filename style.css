@@ -1,0 +1,191 @@
+:root {
+    --lightSand: #e1bdac;
+    --darkSand: #be7554;
+    --primarySand: #d3a590;
+    --light: #f5eee9;
+    
+    --darkFont: #4a3b35;
+    --lightFont: #ebebeb;
+
+    --titleFont: 'Poppins', sans-serif;
+    --bodyFont: 'inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    border-radius: 2rem;
+}
+
+body {
+    background-color: var(--light);
+    font-family: var(--bodyFont);
+    color: var(--darkFont);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.right {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.right h1, 
+.right h3 {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* ---------SELECT------------ */
+
+.selectContainer {
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+}
+
+.select {
+    background-color: var(--darkSand);
+    padding: 25px 10px;
+    border-radius: 32px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    min-width: 290px;
+    max-width: 400px;
+    height: 220px;
+}
+
+.select label {
+    display: block;
+    margin-bottom: 32px;
+    font-weight: 600;
+    font-size: 24px;
+    color: var(--light);
+}
+
+.select select {
+    width: 85%;
+    padding: 12px 15px;
+    margin-bottom: 24px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--light);
+    text-align: center;
+    box-shadow: 
+        rgb(178, 173, 173) 3px 3px 6px 0px inset,
+        rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+.select button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 15px;
+    background-color: var(--light);
+    color: var(--darkSand);
+    font-size: 16px;
+
+}
+
+.select button:hover {
+
+    color: var(--darkFont);
+}
+
+/* ----------RESULT----------- */
+
+.resultContainer {
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+#result {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: var(--primarySand);
+    min-width: 310px;
+    width: 90%;
+}
+
+.mealTitle,
+.mealArea {
+    width: 100%;
+    text-align: center;
+}
+
+.mealTitle {
+    font-size: 40px;
+    padding: 1rem;
+}
+
+.mealTitle,
+.mealImg,
+.mealArea,
+.ingredients,
+.instructions {
+    margin: 1rem;
+}
+
+.mealImg {
+    width: 55vw;
+    min-width: 270px;
+    max-width: 400px;
+}
+
+.ingredients,
+.instructions {
+    background-color: var(--lightSand);
+    box-shadow: 
+        rgb(184, 141, 129) 3px 3px 6px 0px inset,
+        rgba(255, 212, 190, 0.5) -3px -3px 6px 1px inset;
+}
+
+.ingredients {
+    padding: 1rem 2rem 1rem 3rem;
+    min-width: 200px;
+    max-width: 270px;
+}
+
+.ingredients li {
+    margin-bottom: 5px;
+}
+
+.instructions {
+    width: 85%;
+    min-width: 200px;
+    padding: 1.5rem;
+    margin-bottom: 3.5rem;
+}
+
+/* ----------MEDIA----------- */
+
+@media screen and (min-width: 800px) {
+
+    body {
+        flex-direction: row;
+        margin: 2rem;
+    }
+
+    .right {
+        margin-left: 2rem;
+    }
+
+    .resultContainer {
+        margin: 2rem;
+    }
+
+    #result {
+        min-width: 400px;
+        width: 100%;
+    }
+
+    .mealImg {
+        width: 30vw;
+        min-width: 320px;
+        max-width: 490px;
+    }
+}

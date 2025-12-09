@@ -4,30 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>MealGenerator</title>
 </head>
 <body>
     
 <!-- välj kategori sektion-->
- <label for="cat">Choose a Category:</label>
+<section class="right">
 
- <!-- kategori val lista -->
- <select name="cat" id="cat">
-   <option value="">select</option>
- </select>
- 
-<!-- generera mat -->
-<button class="generate">generate Meal</button>
-
-
-<div id="result">
-    <!-- namn -->
-    <!-- bild -->
-    <!-- recept -->
-</div>
+    <h1>Generate a Random Recepie</h1>
+    <h3>For lazy days, or when in search for a new favorite</h3>
+    <section class="selectContainer">
+        <div class="select">
+            
+            <label for="cat">Choose a Category:</label>
+            
+            <!-- kategori val lista -->
+            <select name="cat" id="cat">
+                <option value="">select</option>
+            </select>
+            
+            <!-- generera mat -->
+            <button id="generate">generate Meal</button>
+        </div>
+    </section>
+</section>
+    
+<section class="resultContainer">
+        <!-- namn -->
+        <!-- bild -->
+        <!-- recept -->
+    </div>
+</section>
 
 <!-- inte nöjd? prova igen -->
-<button class="generate">generate Meal</button>
+
 
 
 
