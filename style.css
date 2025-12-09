@@ -1,20 +1,31 @@
+:root {
+        --lightSand: #e1bdac;
+        --darkSand: #be7554;
+        --primarySand: #d3a590;
+        --light: #f5eee9;
+        
+        --darkFont: #4a3b35;
+        --lightFont: #ebebeb;
+
+        --titleFont: 'Poppins', sans-serif;
+        --bodyFont: 'inter', sans-serif;
+}
+
 * {
-        border-radius: 2rem;
-
-        --lightBackground: #e1bdac;
-        --darkBackground: #be7554;
-        --primaryBackground: #d3a590;
-        --light: #ebebeb;
-
+    border-radius: 2rem;
+    box-sizing: border-box;
+    margin: 0;
 }
 
 body {
-    box-sizing: border-box;
-    background-color: #ebebeb;
+    background-color: var(--light);
+    font-family: var(--bodyFont);
+    color: var(--darkFont);
+
     display: flex;
     flex-direction: column;
-    margin: 0;
     justify-content: center;
+    margin: 0;
 }
 
 .right {
@@ -33,7 +44,7 @@ body {
 }
 
 .select {
-    background-color: var(--darkBackground);
+    background-color: var(--darkSand);
     padding: 25px 10px;
     border-radius: 32px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -41,7 +52,7 @@ body {
 
     min-width: 290px;
     max-width: 400px;
-    height: 170px;
+    height: 220px;
 }
 
 .select label {
@@ -66,7 +77,7 @@ body {
 
 .select button {
     background-color: var(--light);
-    color: var(--darkBackground);
+    color: var(--darkSand);
     padding: 12px 24px;
     border: none;
     border-radius: 15px;
@@ -88,7 +99,7 @@ body {
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
-    background-color: var(--primaryBackground);
+    background-color: var(--primarySand);
     min-width: 310px;
     width: 90%;
     /* gap: 2rem; */
@@ -110,14 +121,14 @@ body {
 }
 
 .ingredients, .instructions {
-    background-color: var(--lightBackground);
+    background-color: var(--lightSand);
     box-shadow: rgb(184, 141, 129) 3px 3px 6px 0px inset, rgba(255, 212, 190, 0.5) -3px -3px 6px 1px inset;
 }
 
 .ingredients {
     padding: 1rem 2rem 1rem 3rem;
     min-width: 200px;
-    max-width: 240px;
+    max-width: 270px;
 }
 .ingredients li {
     margin-bottom: 5px;
@@ -127,6 +138,7 @@ body {
     width: 80%;
     padding: 1.5rem;
     margin-bottom: 3.5rem;
+    min-width: 200px;
 }
 
 @media screen and (min-width: 800px){
@@ -134,6 +146,11 @@ body {
             flex-direction: row;
             margin: 2rem;
     }
+
+    .right {
+        margin-left: 2rem;
+    }
+
     .resultContainer {
     margin: 2rem;
     }
@@ -148,7 +165,3 @@ body {
     max-width: 490px;
     }
 }
-
-/* fixa : 
-byta margin på result delarna till padding? 
-lägg in ul som ett append child vid button event.
