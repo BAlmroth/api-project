@@ -1,5 +1,4 @@
 const urlAllCat = 'https://www.themealdb.com/api/json/v1/1/list.php?c=list';
-const urlIngredient = 'https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast';
 
 const cat = document.getElementById('cat');
 const button = document.getElementById('generate');
@@ -21,7 +20,6 @@ fetch(urlAllCat)
 
 button.addEventListener("click", () => {
     const category = cat.value;
-
     const urlCategory = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`;
 
     fetch(urlCategory)
@@ -31,7 +29,6 @@ button.addEventListener("click", () => {
     .then((allMeals) => { 
         const meals = allMeals.meals;
         const randomMeal = meals[Math.floor(Math.random() * meals.length)];
-
         const urlDetails = `https://www.themealdb.com/api/json/v1/1/search.php?s=${randomMeal.strMeal}`;
 
     fetch(urlDetails)
@@ -39,10 +36,11 @@ button.addEventListener("click", () => {
             return response.json();
         }) 
         .then((mealDetails) => {
-
+        
+            resultContainer.innerHTML = "";
+        
+            //meal package
         const meal = mealDetails.meals[0];
-
-        resultContainer.innerHTML = "";
 
         const result = document.createElement("div");
         result.id = "result";
