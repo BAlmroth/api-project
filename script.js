@@ -1,21 +1,15 @@
-// fetch variabler
 const urlAllCat = 'https://www.themealdb.com/api/json/v1/1/list.php?c=list';
-const urlIngredient = 'https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast'; //möjlighet att skriva in ingrediens?
+const urlIngredient = 'https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast';
 
-//select sektion anropa html element 
-const cat = document.getElementById('cat'); //för att lägga in options i select tagen
-const button = document.getElementById('generate'); //för att klicka på knapp -> be js generera
-// const result = document.getElementById('result'); //lägg in info :) 
-const resultContainer = document.querySelector('.resultContainer'); //lägg in info :) 
+const cat = document.getElementById('cat');
+const button = document.getElementById('generate');
+const resultContainer = document.querySelector('.resultContainer');
 
-// element som behöver genereras via js = h2(recept namn), img(bild), list(ingredienser), p(instruktioner)
-
-//dropdown val
 fetch(urlAllCat)
 .then((response) => {
     return response.json();  
 })
-.then((allCat) => { //allCat = array nament allCat['meals'] foreach meals as meal
+.then((allCat) => {
     allCat.meals.forEach(meal => {
         const option = document.createElement("option");
         option.value = meal.strCategory;
@@ -25,8 +19,6 @@ fetch(urlAllCat)
     });
 });
 
-
-//när man har valt cat ->
 button.addEventListener("click", () => {
     const category = cat.value;
 
@@ -36,17 +28,13 @@ button.addEventListener("click", () => {
     .then((response) => {
         return response.json();
     })
-    .then((allMeals) => { // allMeals['meals'] = alla måltider inom kategorin???
+    .then((allMeals) => { 
         const meals = allMeals.meals;
         const randomMeal = meals[Math.floor(Math.random() * meals.length)];
-        // console.log(meals);
-
 
         const urlDetails = `https://www.themealdb.com/api/json/v1/1/search.php?s=${randomMeal.strMeal}`;
 
-        // console.log(urlDetails) //array med all info
-
-    fetch(urlDetails) //få ut infon på något sätt
+    fetch(urlDetails)
         .then((response) => {
             return response.json();
         }) 
@@ -54,32 +42,25 @@ button.addEventListener("click", () => {
 
         const meal = mealDetails.meals[0];
 
-        // Rensa result-diven innan nytt recept skrivs ut
         resultContainer.innerHTML = "";
-                console.log(meal)
 
-        //div
         const result = document.createElement("div");
         result.id = "result";
         resultContainer.appendChild(result)
 
-        //titel
         const title = document.createElement("h2");
         title.textContent = meal.strMeal;
         title.classList.add('mealTitle');
 
-        //Area
         const area = document.createElement("h3");
         area.textContent = meal.strArea;
         area.classList.add('mealArea');
 
-        //bild
         const image = document.createElement("img");
         image.src = meal.strMealThumb;
         image.alt = meal.strMeal;
         image.classList.add('mealImg');
 
-        // Ingredienslista
         const ingredientsList = document.createElement("ul");
         ingredientsList.classList.add('ingredients');
 
@@ -94,12 +75,10 @@ button.addEventListener("click", () => {
             }
         }
 
-
         const instructions = document.createElement("p");
         instructions.innerHTML = meal.strInstructions.replace(/\r?\n/g, "<br> <br>");
         instructions.classList.add('instructions');
 
-        // Stoppa in allt i result-diven
         result.appendChild(title);
         result.appendChild(area);
         result.appendChild(image);
