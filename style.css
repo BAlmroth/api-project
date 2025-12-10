@@ -3,18 +3,29 @@
     --darkSand: #be7554;
     --primarySand: #d3a590;
     --light: #f5eee9;
-    
+
     --darkFont: #4a3b35;
     --lightFont: #ebebeb;
 
-    --titleFont: 'Poppins', sans-serif;
-    --bodyFont: 'inter', sans-serif;
+    --titleFont: 'inter', sans-serif;
+    --bodyFont: 'Poppins', sans-serif;
+
+    --space: 1rem;
+    --largeSpace: 1.5rem;
+
+    --radius: 2rem;
+
+    --lightInset: rgb(178,173,173) 3px 3px 6px inset;
+    --warmInset: rgb(184,141,129) 3px 3px 6px inset;
+    --higlightInset: rgba(255,212,190,0.5) -3px -3px 6px 1px inset;
+
+    --minWidth: 19.375rem;
 }
 
 * {
     margin: 0;
     box-sizing: border-box;
-    border-radius: 2rem;
+    border-radius: var(--radius);
 }
 
 body {
@@ -26,76 +37,79 @@ body {
     justify-content: center;
 }
 
-.right {
-    margin-top: 2rem;
+h1,
+h2,
+h3,
+label {
+    font-family: var(--titleFont);
+}
+
+/* ------left------ */
+
+.left {
+    margin-top: var(--largeSpace);
     text-align: center;
 }
 
-.right h1, 
-.right h3 {
+.left h1,
+.left h3 {
+    margin-top: var(--space);
     text-align: center;
-    margin-top: 1rem;
 }
 
-/* ---------SELECT------------ */
+/* ------select------ */
 
 .selectContainer {
     display: flex;
     justify-content: center;
-    margin: 2rem;
+    margin: var(--largeSpace);
 }
 
 .select {
     background-color: var(--darkSand);
-    padding: 25px 10px;
-    border-radius: 32px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 1.5rem 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     text-align: center;
-    min-width: 290px;
-    max-width: 400px;
-    height: 220px;
+    min-width: var(--minWidth);
+    height: 13.75rem;
 }
 
 .select label {
     display: block;
-    margin-bottom: 32px;
+    margin-bottom: 2rem;
     font-weight: 600;
-    font-size: 24px;
-    color: var(--light);
+    font-size: 1.5rem;
+    color: var(--lightFont);
 }
 
 .select select {
     width: 85%;
-    padding: 12px 15px;
-    margin-bottom: 24px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.5rem;
     border: none;
-    border-radius: 10px;
     background-color: var(--light);
     text-align: center;
-    box-shadow: 
-        rgb(178, 173, 173) 3px 3px 6px 0px inset,
-        rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    box-shadow:
+        var(--lightInset),
+        var(--higlightInset);
 }
 
 .select button {
-    padding: 12px 24px;
+    padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 15px;
     background-color: var(--light);
     color: var(--darkSand);
     font-size: 16px;
-
 }
 
 .select button:hover {
-
     color: var(--darkFont);
 }
 
-/* ----------RESULT----------- */
-
+/* -----result----- */
 .resultContainer {
-    margin: 1rem;
+    margin: var(--space);
     display: flex;
     justify-content: center;
 }
@@ -107,19 +121,8 @@ body {
     flex-wrap: wrap;
     align-items: center;
     background-color: var(--primarySand);
-    min-width: 310px;
+    min-width: var(--minWidth);
     width: 90%;
-}
-
-.mealTitle,
-.mealArea {
-    width: 100%;
-    text-align: center;
-}
-
-.mealTitle {
-    font-size: 40px;
-    padding: 1rem;
 }
 
 .mealTitle,
@@ -127,65 +130,91 @@ body {
 .mealArea,
 .ingredients,
 .instructions {
-    margin: 1rem;
+    margin: var(--space);
+    opacity: 0;
+    transform: scale(0.85);
+    animation: fadeInScale 0.5s ease forwards;
 }
 
+/* ----titles---- */
+.mealTitle,
+.mealArea {
+    width: 100%;
+    text-align: center;
+}
+
+.mealArea {
+    margin: 0 1rem 2rem;
+}
+
+.mealTitle {
+    font-size: 40px;
+    padding: var(--space);
+}
+
+/* ----animation------ */
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+/* ----image---- */
 .mealImg {
     width: 55vw;
-    min-width: 270px;
-    max-width: 400px;
+    min-width: 16.875rem;
+    max-width: 25rem;
 }
 
+/* ----instructions----- */
 .ingredients,
 .instructions {
     background-color: var(--lightSand);
-    box-shadow: 
-        rgb(184, 141, 129) 3px 3px 6px 0px inset,
-        rgba(255, 212, 190, 0.5) -3px -3px 6px 1px inset;
+    box-shadow:
+        var(--warmInset),
+        var(--higlightInset);
 }
 
 .ingredients {
     padding: 1rem 2rem 1rem 3rem;
-    min-width: 200px;
-    max-width: 270px;
+    min-width: 12.5rem;
+    max-width: 16.875rem;
 }
 
 .ingredients li {
-    margin-bottom: 5px;
+    margin-bottom: 0.5rem;
 }
 
 .instructions {
     width: 85%;
-    min-width: 200px;
+    min-width: 12.5rem;
     padding: 1.5rem;
-    margin-bottom: 3.5rem;
+    margin-bottom: 3rem;
 }
 
-/* ----------MEDIA----------- */
-
+/* ---media---- */
 @media screen and (min-width: 800px) {
 
     body {
         flex-direction: row;
-        margin: 2rem;
-    }
+        margin: var(--largeSpace);
+    }  
 
-    .right {
-        margin-left: 2rem;
-    }
-
+    .left,
     .resultContainer {
-        margin: 2rem;
+        margin: var(--largeSpace);
     }
 
     #result {
-        min-width: 400px;
         width: 100%;
     }
 
     .mealImg {
         width: 30vw;
-        min-width: 320px;
-        max-width: 490px;
+        min-width: 20rem;
+        max-width: 30.625rem;
+    }
+
+    .instructions {
+        margin-bottom: 3.5rem;
     }
 }
